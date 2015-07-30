@@ -2,7 +2,6 @@
 # tasks file for ansible-bootstrap
 - include: users.yml
   tags: [bootstrap_users]
-  when: setup_users is defined and setup_users
 
 - include: debian.yml
   when: ansible_os_family == "Debian"
