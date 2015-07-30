@@ -1,0 +1,20 @@
+---
+# tasks file for ansible-bootstrap
+- include: users.yml
+  tags: [bootstrap_users]
+  when: setup_users is defined and setup_users
+
+- include: debian.yml
+  when: ansible_os_family == "Debian"
+
+- include: debian_security.yml
+  when: ansible_os_family == "Debian"
+
+- include: centos_security.yml
+  when: ansible_os_family == "RedHat"
+
+- include: debian_lockdown.yml
+  when: ansible_os_family == "Debian"
+
+- include: centos_lockdown.yml
+  when: ansible_os_family == "RedHat"
