@@ -1,0 +1,5 @@
+---
+- name: centos | installing pre-reqs
+  yum: name={{ item }} state=present
+  with_items:
+    - libselinux-python
