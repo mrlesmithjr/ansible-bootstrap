@@ -15,8 +15,4 @@
 - include: centos_security.yml
   when: ansible_os_family == "RedHat"
 
-- include: debian_lockdown.yml
-  when: ansible_os_family == "Debian"
-
-- include: centos_lockdown.yml
-  when: ansible_os_family == "RedHat"
+- include: lockdown.yml
