@@ -4,6 +4,7 @@ Role Name
 Initial host configurations (Bootstrap)
 Creates user accounts, sets root password, locks down ssh
 
+[![Build Status](https://travis-ci.org/mrlesmithjr/ansible-bootstrap.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-bootstrap)
 Requirements
 ------------
 
