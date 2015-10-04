@@ -4,11 +4,6 @@
   tags:
     - bootstrap_users
 
-- include: deploy_ssh_keys.yml
-  tags:
-    - deploy_ssh_keys
-  when: enable_deploy_ssh_pub_keys is defined and enable_deploy_ssh_pub_keys
-
 - include: debian.yml
   when: ansible_os_family == "Debian"
 
