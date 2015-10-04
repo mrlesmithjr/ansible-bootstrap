@@ -1,19 +1,20 @@
 Role Name
 =========
 
-Initial host configurations (Bootstrap)
-Creates user accounts, sets root password, locks down ssh
+Initial host configurations (Bootstrap)...Creates user accounts, sets root password, locks down ssh and manages remote ssh pub keys
 
 [![Build Status](https://travis-ci.org/mrlesmithjr/ansible-bootstrap.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-bootstrap)
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
 
 ````
+---
+# defaults file for ansible-bootstrap
 create_local_users: true  #defines creating local user accounts on hosts
 # To generate passwords use (replace P@55w0rd with new password).... echo "P@55w0rd" | mkpasswd -s -m sha-512
 create_users:  #defines user accounts to setup on hosts....define here or in group_vars/all
@@ -27,6 +28,15 @@ create_users:  #defines user accounts to setup on hosts....define here or in gro
     shell: ''  #define a different shell for the user
     sudo: false  #define if user should have sudo access...true|false
     system_account: false  #define if account is a system account...true|falseinstall_fail2ban: false
+deploy_ssh_pub_keys:  #defines remote users to add ssh pub keys for either the remote user or adding another users pub key to a remote user for passwordless ssh
+  - remote_user: demo_user
+    keys:
+      - ssh_pub_keys/demo_user.pub
+#      - ssh_pub_keys/demo_user_1.pub
+#  - remote_user: demo_user2
+#    keys:
+#      - ssh_pub_keys/demo_user2.pub
+enable_deploy_ssh_pub_keys: false  #defines if accounts in deploy_ssh_pub_keys should be managed
 reboot: true  # reboot after changing hostname to match inventory_hostname - set to false if you do not want to reboot
 root_password:  #define root password for hosts....define here or in group_vars/all
 ````
@@ -34,12 +44,10 @@ root_password:  #define root password for hosts....define here or in group_vars/
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
