@@ -1,8 +1,10 @@
 ---
 # tasks file for ansible-bootstrap
-- include: users.yml
-  tags:
-    - bootstrap_users
+
+# moved to mrlesmithjr.users
+#- include: users.yml
+#  tags:
+#    - bootstrap_users
 
 - include: debian.yml
   when: ansible_os_family == "Debian"
