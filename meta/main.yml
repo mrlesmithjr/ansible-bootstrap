@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Larry Smith Jr.
-  description: Initial host configurations (Bootstrap)...Creates user accounts, sets root password, locks down ssh and manages remote ssh pub keys
+  description: Initial host configurations (Bootstrap)...Security, SSH, etc.
   #company: your company (optional)
   # Some suggested licenses:
   # - BSD (default)
