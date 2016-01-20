@@ -30,10 +30,6 @@
   yum:
     name: fail2ban
     state: absent
-  when: install_fail2ban is defined and not install_fail2ban
-
-- name: centos_security | removing fail2ban
-  yum:
-    name: fail2ban
-    state: absent
-  when: install_fail2ban is not defined
+  when: >
+        (install_fail2ban is defined and not install_fail2ban) or
+        install_fail2ban is not defined

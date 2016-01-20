@@ -25,10 +25,6 @@
   apt:
     name: fail2ban
     state: absent
-  when: install_fail2ban is defined and not install_fail2ban
-
-- name: debian_security | removing fail2ban
-  apt:
-    name: fail2ban
-    state: absent
-  when: install_fail2ban is not defined
+  when: >
+        (install_fail2ban is defined and not install_fail2ban) or
+        install_fail2ban is not defined
