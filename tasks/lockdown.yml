@@ -17,7 +17,17 @@
   notify: restart sshd
   when: ansible_os_family == "RedHat"
 
-- name: lockdown | changing root password
+- name: lockdown | changing root password (RedHat)
   user:
     name: root
     password: "{{ root_password }}"
+  when: ansible_os_family == "RedHat"
+
+- name: lockdown | changing/setting root password (Debian)
+  user:
+    name: root
+    password: "{{ root_password }}"
+  when: >
+        (debian_set_root_pw is defined and debian_set_root_pw) and
+        ansible_os_family == "Debian" and
+        root_password is defined
