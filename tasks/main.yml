@@ -6,10 +6,10 @@
 - include: debian_security.yml
   when: ansible_os_family == "Debian"
 
-- include: centos.yml
+- include: redhat.yml
   when: ansible_os_family == "RedHat"
 
-- include: centos_security.yml
+- include: redhat_security.yml
   when: ansible_os_family == "RedHat"
 
 - include: lockdown.yml
