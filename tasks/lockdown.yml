@@ -33,4 +33,4 @@
   when: >
         ansible_os_family == "Debian" and
         bootstrap_root_password is defined and
-        bootstrap_debian_set_root_pw        
+        bootstrap_debian_set_root_pw
