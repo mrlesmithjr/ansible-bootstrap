@@ -14,20 +14,3 @@
     line: "GSSAPIAuthentication no"
     state: "present"
   notify: "restart ssh"
-
-- name: debian_security | installing fail2ban
-  apt:
-    name: "fail2ban"
-    state: "present"
-  when: >
-        bootstrap_install_fail2ban is defined and
-        bootstrap_install_fail2ban
-
-- name: debian_security | removing fail2ban
-  apt:
-    name: "fail2ban"
-    state: "absent"
-  when: >
-        (bootstrap_install_fail2ban is defined and
-        not bootstrap_install_fail2ban) or
-        bootstrap_install_fail2ban is not defined
