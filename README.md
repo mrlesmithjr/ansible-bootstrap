@@ -1,7 +1,11 @@
 Role Name
 =========
 
-Initial host configurations (Bootstrap)...Security, SSH, etc.
+An [Ansible] bootstrap role
+
+- useful for adding initial post deployment tasks
+- creating initial users
+- setting initial user passwords
 
 Requirements
 ------------
@@ -57,3 +61,5 @@ Larry Smith Jr.
 - @mrlesmithjr
 - http://everythingshouldbevirtual.com
 - mrlesmithjr [at] gmail.com
+
+[Ansible]: <https://www.ansible.com>

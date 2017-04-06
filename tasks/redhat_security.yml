@@ -1,20 +1,4 @@
 ---
-- name: redhat_security | allowing SSH password authentication
-  lineinfile:
-    dest: "/etc/ssh/sshd_config"
-    regexp: "^PasswordAuthentication"
-    line: "PasswordAuthentication yes"
-    state: "present"
-  notify: "restart sshd"
-
-- name: redhat_security | disabling SSH GSS API authentication
-  lineinfile:
-    dest: "/etc/ssh/sshd_config"
-    regexp: "^GSSAPIAuthentication"
-    line: "GSSAPIAuthentication no"
-    state: "present"
-  notify: restart sshd
-
 - name: redhat_security | adding EPEL repo
   yum:
     name: "epel-release"
